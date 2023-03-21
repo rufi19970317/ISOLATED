@@ -1,0 +1,22 @@
+{
+    "spawns": [
+        {
+            "level": "1",
+            "monsterType": [ 1 ],
+            "floor": [ 1 ],
+            "monsterNum": [ 20 ]
+        },
+        {
+            "level": "2",
+            "monsterType": [ 1, 1 ],
+            "floor": [ 1, 2 ],
+            "monsterNum": [ 20, 10 ]
+        },
+        {
+            "level": "3",
+            "monsterType": [ 1, 1, 1 ],
+            "floor": [ 1, 2, 3 ],
+            "monsterNum": [ 20, 10, 10 ]
+        }
+    ]
+}

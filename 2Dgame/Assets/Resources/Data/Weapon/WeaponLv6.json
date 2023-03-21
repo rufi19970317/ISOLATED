@@ -1,0 +1,37 @@
+{
+  "weaponStats": [
+    {
+      "name": "Hook",
+      "level": "1",
+      "attack": "20",
+      "coolTime": "1",
+      "duration": "1",
+      "speed": "50",
+      "range": "30",
+      "num": "-1",
+      "count": "1"
+    },
+    {
+      "name": "Knife",
+      "level": "1",
+      "attack": "20",
+      "coolTime": "1",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "1",
+      "count": "1"
+    },
+    {
+      "name": "Bullet",
+      "level": "1",
+      "attack": "20",
+      "coolTime": "1",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "1",
+      "count": "1"
+    }
+  ]
+}

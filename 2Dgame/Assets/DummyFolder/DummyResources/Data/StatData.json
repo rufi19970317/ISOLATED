@@ -1,0 +1,28 @@
+{
+    "stats": [
+        {
+            "name": "ch01",
+            "weaponType": "Knife",
+            "maxHp": "200",
+            "attack": "20",
+            "moveSpeed": "5",
+            "totalExp" : "1000"
+        },
+        {
+            "name": "ch02",
+            "weaponType": "Knife",
+            "maxHp": "250",
+            "attack": "25",
+            "moveSpeed": "5",
+            "totalExp": "2000"
+        },
+        {
+            "name": "ch03",
+            "weaponType": "Bullet",
+            "maxHp": "300",
+            "attack": "30",
+            "moveSpeed": "5",
+            "totalExp": "3000"
+        }
+    ]
+}
