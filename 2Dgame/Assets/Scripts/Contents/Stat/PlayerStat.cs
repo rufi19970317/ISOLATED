@@ -52,9 +52,33 @@ public class PlayerStat : MonoBehaviour
     [SerializeField]
     int _houseExp;
 
-    public int WeaponUpgradeNum { get { return _weaponUpgradeNum; } set { _weaponUpgradeNum = value; } }
-    public int PlayerUpgradeNum { get { return _playerUpgradeNum; } set { _playerUpgradeNum = value; } }
-    public int HouseUpgradeNum { get { return _houseUpgradeNum; } set { _houseUpgradeNum = value; } }
+    public int WeaponUpgradeNum
+    {
+        get { return _weaponUpgradeNum; }
+        set
+        {
+            _weaponUpgradeNum = value;
+            expBar.UpdateEXP(Define.EXPType.WeaponEXP, _weaponUpgradeNum, (float)_weaponExp / _totalWeaponExp);
+        }
+    }
+    public int PlayerUpgradeNum
+    {
+        get { return _playerUpgradeNum; }
+        set
+        {
+            _playerUpgradeNum = value;
+            expBar.UpdateEXP(Define.EXPType.PlayerEXP, _playerUpgradeNum, (float)_playerExp / _totalPlayerExp);
+        }
+    }
+    public int HouseUpgradeNum
+    {
+        get { return _houseUpgradeNum; }
+        set
+        {
+            _houseUpgradeNum = value;
+            expBar.UpdateEXP(Define.EXPType.HouseEXP, _houseUpgradeNum, (float)_houseExp / _totalHouseExp);
+        }
+    }
 
     public int TotalWeaponExp { get { return _totalWeaponExp; } set { _totalWeaponExp = value; } }
     public int TotalPlayerExp { get { return _totalPlayerExp; } set { _totalPlayerExp = value; } }
@@ -116,7 +140,7 @@ public class PlayerStat : MonoBehaviour
                 _houseExp = 0;
                 _houseUpgradeNum++;
             }
-            expBar.UpdateEXP(Define.EXPType.HouseEXP, _houseUpgradeNum, (float)_playerExp / _totalHouseExp);
+            expBar.UpdateEXP(Define.EXPType.HouseEXP, _houseUpgradeNum, (float)_houseExp / _totalHouseExp);
         }
     }
 
@@ -126,15 +150,11 @@ public class PlayerStat : MonoBehaviour
 
     public void SetStat()
     {
-        expBar = Managers.UI.ShowSceneUI<UI_EXP>();
         hpBar = Managers.UI.ShowSceneUI<UI_HPBar>();
+        expBar = Managers.UI.ShowSceneUI<UI_EXP>();
 
         Hp = 100;
         MaxHp = 100;
-
-        WeaponUpgradeNum = 0;
-        PlayerUpgradeNum = 0;
-        HouseUpgradeNum = 0;
 
         TotalWeaponExp = 20;
         TotalPlayerExp = 5;
@@ -143,6 +163,13 @@ public class PlayerStat : MonoBehaviour
         WeaponExp = 0;
         PlayerExp = 0;
         HouseExp = 0;
+
+        WeaponUpgradeNum = 9;
+        PlayerUpgradeNum = 1;
+        HouseUpgradeNum = 0;
+
+
+        Managers.UI.ClosePopupUI((Managers.UI.ShowPopUpUI<UI_Upgrade>()));
     }
 
     public void OnDamaged(int damage)
@@ -154,7 +181,7 @@ public class PlayerStat : MonoBehaviour
         }
         else
         {
-            //transform.GetComponent<PlayerController>().State = Define.State.Die;
+            Managers.Scene.LoadScene(Define.Scene.Start);
         }
     }
 }

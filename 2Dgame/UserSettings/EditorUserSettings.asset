@@ -1,3 +1,51 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8d2be3aca70730b0b38c06d4f93d08d85c899de4f6b383355da41bcc1f717cb
-size 2931
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!162 &1
+EditorUserSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 4
+  m_ConfigSettings:
+    RecentlyUsedScenePath-0:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3ee12dff7c7d9d8f997c6cafbd1d1b4e0fbfcfddcf0fcaab5bfa6f5d4b3
+      flags: 0
+    RecentlyUsedScenePath-1:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3e918d3f6d2fbd1e4cda4caf5fadaa2e7f3ddebf6e0bfb0f5a3bce5
+      flags: 0
+    RecentlyUsedScenePath-2:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3eb12ddefdac1e0ebcaece2cc91f28dd4fbfce2f7e2c5a4e9adade8e4afa2f1ffbaccced0d8
+      flags: 0
+    RecentlyUsedScenePath-3:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3ea15def0c1f5d5e7ddf9e697f3f287fafbe3fadbf4fca0e9ab8cf9cda5e1ebbfa6d6de
+      flags: 0
+    RecentlyUsedScenePath-4:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3ea14cbeedac59bc7f5cceec2d3d084f7f9ffa0edfbf8b1e2
+      flags: 0
+    RecentlyUsedScenePath-5:
+      value: 224247031146467a1e1d09362337500213231725203b6913223b1a3ac7ee3331ece279ddef332d380903fd281d712c30e00f2404e3051e0a1800ee413cd2241c1ec90b8a3ecd1213d85631e3e21fc2e6c7c0d5e8d4eea8f5f3f0a2e1f1e2f8f9f7fda0dfafa5f38ebfa1f7a5b6
+      flags: 0
+    RecentlyUsedScenePath-6:
+      value: 22424703114646680e0b0227036c78111b12563f22213229
+      flags: 0
+    RecentlyUsedScenePath-7:
+      value: 224247031146466804031c2e15637911180319393568010504662e30e7ee312badc333e4e8093c393707be721130082beb
+      flags: 0
+    RecentlyUsedScenePath-8:
+      value: 224247031146466804031c2e15637911180319393568010504662e30e7ee312badc333e4e8093c393707bd721130082beb
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 22424703114646680e0b0227036c6c0417050c6439262f2434
+      flags: 0
+    vcSharedLogLevel:
+      value: 0d5e400f0650
+      flags: 0
+  m_VCAutomaticAdd: 1
+  m_VCDebugCom: 0
+  m_VCDebugCmd: 0
+  m_VCDebugOut: 0
+  m_SemanticMergeMode: 2
+  m_VCShowFailedCheckout: 1
+  m_VCOverwriteFailedCheckoutAssets: 1
+  m_VCProjectOverlayIcons: 1
+  m_VCHierarchyOverlayIcons: 1
+  m_VCOtherOverlayIcons: 1
+  m_VCAllowAsyncUpdate: 1

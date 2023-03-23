@@ -2,7 +2,7 @@
   "weaponStats": [
     {
       "name": "Hook",
-      "level": "1",
+      "level": "6",
       "attack": "20",
       "coolTime": "1",
       "duration": "1",
@@ -13,7 +13,7 @@
     },
     {
       "name": "Knife",
-      "level": "1",
+      "level": "6",
       "attack": "20",
       "coolTime": "1",
       "duration": "1",
@@ -23,14 +23,69 @@
       "count": "1"
     },
     {
-      "name": "Bullet",
-      "level": "1",
+      "name": "Fireball",
+      "level": "6",
       "attack": "20",
       "coolTime": "1",
       "duration": "1",
       "speed": "10",
       "range": "30",
       "num": "1",
+      "count": "1"
+    },
+    {
+      "name": "Bomb",
+      "level": "6",
+      "attack": "20",
+      "coolTime": "1",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "-1",
+      "count": "1"
+    },
+    {
+      "name": "FireBomb",
+      "level": "6",
+      "attack": "20",
+      "coolTime": "3",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "-1",
+      "count": "1"
+    },
+    {
+      "name": "Club",
+      "level": "6",
+      "attack": "20",
+      "coolTime": "3",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "-1",
+      "count": "1"
+    },
+    {
+      "name": "Skull",
+      "level": "6",
+      "attack": "20",
+      "coolTime": "3",
+      "duration": "1",
+      "speed": "10",
+      "range": "30",
+      "num": "-1",
+      "count": "1"
+    },
+    {
+      "name": "Magic",
+      "level": "6",
+      "attack": "20",
+      "coolTime": "15",
+      "duration": "10",
+      "speed": "10",
+      "range": "30",
+      "num": "-1",
       "count": "1"
     }
   ]

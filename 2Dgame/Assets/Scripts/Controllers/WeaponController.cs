@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class WeaponController : ItemController
 {
@@ -39,6 +38,7 @@ public class WeaponController : ItemController
     }
 
     GameObject hookParent;
+    GameObject skull;
     int hookCount;
     void Spawn(Define.Weapon weapon)
     {
@@ -47,6 +47,12 @@ public class WeaponController : ItemController
             if (_currentWeapon != Define.Weapon.Hook && _currentWeapon != Define.Weapon.All)
                 hookParent.SetActive(false);
         }
+        if(skull != null)
+        {
+            if(_currentWeapon != Define.Weapon.Skull && _currentWeapon != Define.Weapon.All)
+                skull.SetActive(false);
+        }
+
         switch (weapon)
         {
             #region Hook
@@ -187,16 +193,18 @@ public class WeaponController : ItemController
             #region Skull
             // 플레이어 주위에 지속적으로 적을 넉백시키는 오오라를 풍긴다.
             case Define.Weapon.Skull:
-                if (weaponsTime[weapon] <= 0f)
+                // 무기가 없으면 스폰
+                if (skull == null)
                 {
-                    GameObject skull = Managers.Resource.Instantiate("Weapon/Skull");
+                    skull = Managers.Resource.Instantiate("Weapon/Skull");
                     skull.GetOrAddComponent<Skull>().SetStat(weapon, weaponsStat[weapon]);
-                    skull.transform.position = _player.position;
                     skull.transform.parent = spawnPool;
-                    weaponsTime[weapon] = 10000f;
                 }
-                else
-                    weaponsTime[weapon] = 10000f;
+                else if (!skull.activeSelf)
+                {
+                    skull.SetActive(true);
+                }
+                skull.transform.position = _player.position;
                 break;
             #endregion
             #region Magic
@@ -205,7 +213,7 @@ public class WeaponController : ItemController
                 // 지속 데미지, 광역 데미지
                 if (weaponsTime[weapon] <= 0f)
                 {
-                    int _magicLayerMask = 1 << LayerMask.NameToLayer("Ground");
+                    int _magicLayerMask = 1 << LayerMask.NameToLayer("Platforms");
                     float ls = _player.localScale.x;
                     RaycastHit2D hit = Physics2D.Raycast(_player.position, ls * _player.right, 10f, _magicLayerMask);
                     if(hit.collider == null)
@@ -288,12 +296,14 @@ public class WeaponController : ItemController
         _currentWeapon = weapon;
     }
 
-    public void WeaponLevelUp(Define.Weapon weapon)
+    public int WeaponLevelUp(Define.Weapon weapon)
     {
         if (weaponsStat.ContainsKey(weapon))
             SetWeaponStat(weapon);
         else
             SetWeapon(weapon);
+
+        return weaponsStat[weapon].level;
     }
 
     public void SetWeaponStat(Define.Weapon weapon)

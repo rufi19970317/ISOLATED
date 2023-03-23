@@ -14,11 +14,22 @@ public class StartScene : BaseScene
         // 씬 타입 설정
         SceneType = Define.Scene.Start;
         Managers.UI.ShowPopUpUI<UI_Start>();
+
+        SetResolution();
     }
 
     // 씬 초기화
     public override void Clear()
     {
         Debug.Log("Login Scene Clear!");
+    }
+
+    // 해상도 고정
+    public void SetResolution()
+    {
+        int width = 1920;
+        int height = 1080;
+
+        Screen.SetResolution(width, height, false);
     }
 }

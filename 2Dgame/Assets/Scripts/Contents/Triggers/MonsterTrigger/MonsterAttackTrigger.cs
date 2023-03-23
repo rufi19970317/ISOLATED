@@ -15,8 +15,11 @@ public class MonsterAttackTrigger : MonoBehaviour
 
     void Start()
     {
-        _player = Managers.Game.GetPlayer();
-        _targetStat = _player.GetComponent<PlayerStat>();
+        if (Managers.Game.GetPlayer() != null)
+        {
+            _player = Managers.Game.GetPlayer();
+            _targetStat = _player.GetComponent<PlayerStat>();
+        }
         _stat = transform.parent.GetComponent<Stat>();
         _damageSpeed = 0.8f;
         _damageTime = _damageSpeed;
@@ -24,6 +27,14 @@ public class MonsterAttackTrigger : MonoBehaviour
 
     void Update()
     {
+        if(_player == null)
+        {
+            if (Managers.Game.GetPlayer() != null)
+            {
+                _player = Managers.Game.GetPlayer();
+                _targetStat = _player.GetComponent<PlayerStat>();
+            }
+        }
         if (isDamage)
             _damageTime -= Time.deltaTime;
     }

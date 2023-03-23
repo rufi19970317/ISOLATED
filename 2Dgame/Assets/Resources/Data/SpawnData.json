@@ -14,9 +14,9 @@
         },
         {
             "level": "3",
-            "monsterType": [ 1, 1, 1 ],
-            "floor": [ 1, 2, 3 ],
-            "monsterNum": [ 20, 10, 10 ]
+            "monsterType": [ 2, 3, 1, 1 ],
+            "floor": [ 1, 1, 2, 3 ],
+            "monsterNum": [ 10, 10, 10, 10 ]
         }
     ]
 }

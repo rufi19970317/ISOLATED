@@ -29,6 +29,7 @@ public class MonsterController : MonoBehaviour
     {
         WorldObjectType = Define.WorldObject.Monster;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if(spriteRenderer == null) spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
         _stat = gameObject.GetComponent<EnemyStat>();
     }
 

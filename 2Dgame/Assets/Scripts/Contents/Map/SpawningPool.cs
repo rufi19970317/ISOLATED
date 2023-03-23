@@ -14,7 +14,7 @@ public class SpawningPool : MonoBehaviour
     [SerializeField]
     Transform[] _spawnPos;
 
-    int _level = 0;
+    int _level = 3;
     int[] _monsterType;
     int[] _floor;
     int[] _monsterNum;
@@ -32,9 +32,8 @@ public class SpawningPool : MonoBehaviour
 
     public void ReserveSpawn()
     {
-        if (_level < Managers.Data.SpawnDict.Count)
+        if (_level <= Managers.Data.SpawnDict.Count)
         {
-            _level++;
             SetSpawn(_level);
 
             StartCoroutine("SpawnEnemy");

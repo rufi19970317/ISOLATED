@@ -1,3 +1,4 @@
+using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,16 +58,26 @@ public class UI_Inven : UI_Scene
     {
         GameObject gridPanel = Get<GameObject>((int)GameObjects.WeaponGridPanel);
 
+        // 무기 상태가 All 일 때,
+        bool isAll = false;
+        if (!Get<GameObject>((int)GameObjects.WeaponGridPanel).activeSelf)
+        {
+            Get<GameObject>((int)GameObjects.WeaponGridPanel).SetActive(true);
+            isAll = true;
+        }
+
         // 첫 무기일 경우,
-        if(invenDic.Count == 0)
+        if (invenDic.Count == 0)
         {
             // weapon 저장 및 currentWeapon 설정
             Get<GameObject>((int)GameObjects.NoneWeapon).SetActive(false);
             Get<GameObject>((int)GameObjects.WeaponInventory).SetActive(true);
 
             GameObject item = Managers.UI.MakeSubItem<UI_Inven_Item>(transform).gameObject;
-            item.GetOrAddComponent<UI_Inven_Item>();
+            UI_Inven_Item invenItem = item.GetOrAddComponent<UI_Inven_Item>();
             currentWeapon = new Weapon_Inven_Item(weapon, item, Managers.Resource.Load<Sprite>("Sprites/Items/Weapon/" + weapon.ToString()));
+
+            invenItem.SetImage(currentWeapon.image);
             item.SetActive(false);
             invenDic.Add(weapon, item);
 
@@ -87,6 +98,10 @@ public class UI_Inven : UI_Scene
 
             _invenQueue.Enqueue(WeaponSet);
         }
+
+        // 무기 상태가 All 일 때,
+        if (isAll)
+            Get<GameObject>((int)GameObjects.WeaponGridPanel).SetActive(false);
     }
 
     public Define.Weapon ChangeWeapon()
@@ -111,13 +126,15 @@ public class UI_Inven : UI_Scene
 
     public Define.Weapon AllWeaponUIOn()
     {
-        if (_invenQueue.Count > 0)
+        if (invenDic.Count > 1)
         {
             Get<GameObject>((int)GameObjects.WeaponGridPanel).SetActive(false);
             Get<GameObject>((int)GameObjects.WeaponInventory).SetActive(false);
             Get<GameObject>((int)GameObjects.AllWeapon).SetActive(true);
             return Define.Weapon.All;
         }
+        else if (invenDic.Count == 1)
+            return currentWeapon.weapon;
         else
             return Define.Weapon.None;
     }

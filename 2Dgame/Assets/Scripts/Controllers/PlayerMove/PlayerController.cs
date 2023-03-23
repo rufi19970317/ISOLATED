@@ -2,15 +2,29 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour
 {
-    public bool _abillityDash = false;
-    public bool _abillityRun = false;
+    #region Player Ability
+    bool _abilityDash = false;
+    bool _abilityRun = false;
+
+    public void SetAbility(Define.PlayerAbility ability)
+    {
+        switch(ability)
+        {
+            case Define.PlayerAbility.Dash:
+                _abilityDash = true;
+                break;
+            case Define.PlayerAbility.Run:
+                _abilityRun = true;
+                break;
+        }
+    }
+    #endregion
 
     #region SCRIPT PARAMETERS
     public PlayerData _playerData;
@@ -197,7 +211,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region DASH CHECKS
-        if (_abillityDash && CanDash() && LastPressedDashTime > 0)
+        if (_abilityDash && CanDash() && LastPressedDashTime > 0)
         {
             //If not direction pressed, dash forward
             if (_moveInput != Vector2.zero)

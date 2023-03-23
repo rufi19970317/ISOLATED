@@ -72,7 +72,7 @@ public class GameScene : BaseScene
     void SpawnEnemy()
     {
         _spawnTime += _time;
-        if((int)_spawnTime >= 60f)
+        if((int)_spawnTime >= 30f)
         {
             _spawnTime = 0f;
             _pool.ReserveSpawn();
