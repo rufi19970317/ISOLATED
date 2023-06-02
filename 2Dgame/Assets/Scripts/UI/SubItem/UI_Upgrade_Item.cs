@@ -7,7 +7,6 @@ using static Util;
 public class UI_Upgrade_Item : UI_Base
 {
     PlayerStat stat;
-    WeaponController WeaponController;
     HouseController HouseController;
     PlayerController PlayerController;
 
@@ -31,27 +30,14 @@ public class UI_Upgrade_Item : UI_Base
         stat = Managers.Game.GetPlayer().GetComponent<PlayerStat>();
         switch (ability)
         {
-            case Define.Ability.Weapon:
-                WeaponController = Managers.Game.GetPlayer().GetComponent<WeaponController>();
-                Define.Weapon weaponAbility = EnumUtil<Define.Weapon>.Parse(abilityName);
-                Get<GameObject>((int)GameObjects.ItemIcon).GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("Sprites/Items/Weapon/" + abilityName);
-                Get<GameObject>((int)GameObjects.ItemUpgrade).BindEvent((PointerEventData) =>
-                {
-                    if (stat.WeaponUpgradeNum >= 1)
-                    {
-                        int level = WeaponController.WeaponLevelUp(weaponAbility);
-                        stat.WeaponUpgradeNum--;
-                        if (level >= 8) UpgradeComplete();
-                    }
-                });
-                break;
             case Define.Ability.House:
                 Define.HouseAbility houseAbility = EnumUtil<Define.HouseAbility>.Parse(abilityName);
-                
                 break;
             case Define.Ability.Player:
                 PlayerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
                 Define.PlayerAbility playerAbility = EnumUtil<Define.PlayerAbility>.Parse(abilityName);
+                Get<GameObject>((int)GameObjects.ItemIcon).GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("Sprites/Upgrade/" + abilityName);
+
                 Get<GameObject>((int)GameObjects.ItemUpgrade).BindEvent((PointerEventData) =>
                 {
                     if (stat.PlayerUpgradeNum >= 1)

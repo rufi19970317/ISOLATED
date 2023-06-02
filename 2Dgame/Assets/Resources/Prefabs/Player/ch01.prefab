@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 3326239993216348297}
   - component: {fileID: 5256715750668528604}
   - component: {fileID: 2627275482088569137}
+  - component: {fileID: 3339178776927746822}
   m_Layer: 7
   m_Name: ch01
   m_TagString: Untagged
@@ -492,28 +493,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6b5a27a8941224cb3de3630065f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
   _hp: 0
+  _hpHeal: 0
+  _hpHealTime: 0
   _maxHp: 0
-  _attack: 0
-  _moveSpeed: 0
-  _weaponDamagePer: 0
-  _weaponCoolTimePer: 0
-  _weaponDurationPer: 0
-  _weaponSpeed: 0
-  _weaponRange: 0
-  _weaponNum: 0
-  _defense: 0
-  _jumpPower: 12.5
   _gold: 0
-  _heal: 0
   _magnetRange: 0
-  _expPer: 0
-  _luck: 0
-  isLevelUp: 0
-  _level: 0
-  _totalExp: 0
-  _exp: 0
+  _weaponUpgradeNum: 0
+  _totalWeaponExp: 0
+  _totalPlayerExp: 0
+  _totalHouseExp: 0
+  _weaponExp: 0
+  _playerExp: 0
+  _houseExp: 0
 --- !u!114 &5256715750668528604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +544,18 @@ MonoBehaviour:
   isLeftWall: 0
   onRightWall: 0
   onLeftWall: 0
+--- !u!114 &3339178776927746822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199620226762116079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eb911ed633a4440be2e5b6c8156b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9199620226974757681
 GameObject:
   m_ObjectHideFlags: 0

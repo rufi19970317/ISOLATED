@@ -246,12 +246,12 @@ public class WeaponController : ItemController
     }
 
     #region All Weapon
-    void OnAllWeapon()
+    public void OnAllWeapon()
     {
         if (_currentWeapon != Define.Weapon.None)
             _currentWeapon = _invenUI.AllWeaponUIOn();
     }
-    void OffAllWeapon()
+    public void OffAllWeapon()
     {
         if(_currentWeapon == Define.Weapon.All)
             _currentWeapon = _invenUI.AllWeaponUIOff();
@@ -344,10 +344,8 @@ public class WeaponController : ItemController
                         _currentWeapon = _invenUI.ChangeWeapon();
                     break;
                 case Define.KeyEvent.Down:
-                    OnAllWeapon();
                     break;
                 case Define.KeyEvent.Up:
-                    OffAllWeapon();
                     break;
                 case Define.KeyEvent.Cancel:
                     break;

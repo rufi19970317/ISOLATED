@@ -18,6 +18,11 @@ public class MonsterController : MonoBehaviour
     Vector2 _destPosGround;
     Vector2 _destPosFly;
 
+    Rigidbody2D rigid;
+    Animator anim;
+
+    bool isDamaged = false;
+
     public Define.WorldObject WorldObjectType { get; protected set; } = Define.WorldObject.Unknown;
 
     void Start()
@@ -31,6 +36,20 @@ public class MonsterController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if(spriteRenderer == null) spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
         _stat = gameObject.GetComponent<EnemyStat>();
+        rigid = GetComponent<Rigidbody2D>();
+
+        if(GetComponent<Animator>() != null)
+            anim = GetComponent<Animator>();
+        else
+            anim = GetComponentInChildren<Animator>();
+
+    }
+
+    void OnEnable()
+    {
+        isDamaged = false;
+        if(spriteRenderer!= null)
+            spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     void Update()
@@ -39,8 +58,14 @@ public class MonsterController : MonoBehaviour
         {
             SetPlayer();
         }
+    }
 
-        UpdateMoving();
+    void FixedUpdate()
+    {
+        if (!isDamaged)
+            UpdateMoving();
+        else
+            StartCoroutine(Knockback());
     }
 
     void SetPlayer()
@@ -75,11 +100,51 @@ public class MonsterController : MonoBehaviour
             default:
                 break;
         }
+
+        Vector2 nextVec = dir.normalized * _stat.MoveSpeed * Time.fixedDeltaTime;
+        
+
         if (dir.magnitude >= 0.1f)
         {
-            transform.position += (Vector3)dir.normalized * _stat.MoveSpeed * Time.deltaTime;
+            rigid.MovePosition(rigid.position + nextVec);
+            rigid.velocity = Vector2.zero;
+
             if (dir.normalized.x < 0) spriteRenderer.flipX = false;
             else spriteRenderer.flipX = true;
         }
+    }
+
+    public void OnDamaged()
+    {
+        isDamaged = true;
+    }
+
+    IEnumerator Knockback()
+    {
+        spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1);
+
+        Vector3 playerPos = Managers.Game.GetPlayer().transform.position;
+        
+        _destPosGround = new Vector2(_player.transform.position.x, transform.position.y);
+        _destPosFly = _player.transform.position;
+        
+        Vector3 dirVect = transform.position - playerPos;
+        switch (_type)
+        {
+            case Define.MonsterType.Ground:
+                dirVect = (Vector2)transform.position - _destPosGround;
+                break;
+            case Define.MonsterType.Fly:
+                dirVect = (Vector2)transform.position - _destPosFly;
+                break;
+            default:
+                break;
+        }
+        rigid.AddForce(dirVect.normalized, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.1f);
+
+        isDamaged = false;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 }

@@ -8,7 +8,8 @@ public class UI_Timer : UI_Scene
 {
     enum GameObjects
     {
-        Timer
+        Timer,
+        MonsterCount
     }
 
     public override void Init()
@@ -18,15 +19,27 @@ public class UI_Timer : UI_Scene
         Bind<GameObject>(typeof(GameObjects));
     }
 
-    public void SetTimer(int minute, int second)
+    public void SetObject(bool isDefense)
     {
-        if(minute < 10 && second < 10)
-            Get<GameObject>((int)GameObjects.Timer).GetComponent<TMP_Text>().text = $"0{minute}:0{second}";
-        else if(minute < 10 && second >= 10)
-            Get<GameObject>((int)GameObjects.Timer).GetComponent<TMP_Text>().text = $"0{minute}:{second}";
-        else if(minute >= 10 && second < 10)
-            Get<GameObject>((int)GameObjects.Timer).GetComponent<TMP_Text>().text = $"{minute}:0{second}";
+        if(isDefense)
+        {
+            GetObject((int)GameObjects.Timer).SetActive(false);
+            GetObject((int)GameObjects.MonsterCount).SetActive(true);
+        }
         else
-            Get<GameObject>((int)GameObjects.Timer).GetComponent<TMP_Text>().text = $"{minute}:{second}";
+        {
+            GetObject((int)GameObjects.Timer).SetActive(true);
+            GetObject((int)GameObjects.MonsterCount).SetActive(false);
+        }
+    }
+
+    public void SetTimer(float ratio)
+    {
+        GetObject((int)GameObjects.Timer).GetComponent<Slider>().value = ratio;
+    }
+
+    public void SetCount(string count)
+    {
+        GetObject((int)GameObjects.MonsterCount).GetComponent<TMP_Text>().text = count;
     }
 }

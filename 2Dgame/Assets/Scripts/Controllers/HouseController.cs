@@ -39,7 +39,8 @@ public class HouseController : MonoBehaviour
             switch (Key)
             {
                 case Define.KeyEvent.Up:
-                    Managers.UI.ShowPopUpUI<UI_Upgrade>();
+                    UI_Upgrade upgradeUI = Managers.UI.ShowPopUpUI<UI_Upgrade>();
+                    upgradeUI.SetEndButton();
                     break;
             }
         }

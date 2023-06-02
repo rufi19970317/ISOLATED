@@ -11,6 +11,10 @@ public class PlayerStat : MonoBehaviour
     [SerializeField]
     int _hp;
     [SerializeField]
+    int _hpHeal;
+    [SerializeField]
+    float _hpHealTime;
+    [SerializeField]
     int _maxHp;
     [SerializeField]
     int _gold;
@@ -26,6 +30,8 @@ public class PlayerStat : MonoBehaviour
             hpBar.UpdateHP((float) _hp / _maxHp);
         }
     }
+    public int HpHeal { get { return _hpHeal; } set { _hpHeal = value; } }
+    public float HpHealTime { get { return _hpHealTime; } set { _hpHealTime = value; _time = _hpHealTime; } }
     public int MaxHp { get { return _maxHp; } set { _maxHp = value; } }
     public int Gold { get { return _gold; } set { _gold = value; } }
     public float MagnetRange { get { return _magnetRange; } set { _magnetRange = value; } }
@@ -146,15 +152,39 @@ public class PlayerStat : MonoBehaviour
 
     UI_EXP expBar;
     UI_HPBar hpBar;
+    UI_Key keyUI;
     #endregion
+
+    bool isHeal = false;
+    float _time = 0.5f;
+
+    void Update()
+    {
+        if(isHeal)
+        {
+            _time -= Time.deltaTime;
+            if (_time < 0f)
+            {
+                Hp += HpHeal;
+                if (Hp >= MaxHp)
+                {
+                    Hp = MaxHp;
+                }
+                _time = HpHealTime;
+            }
+        }
+    }
 
     public void SetStat()
     {
         hpBar = Managers.UI.ShowSceneUI<UI_HPBar>();
         expBar = Managers.UI.ShowSceneUI<UI_EXP>();
+        keyUI = Managers.UI.ShowSceneUI<UI_Key>();
 
         Hp = 100;
         MaxHp = 100;
+        HpHeal = 10;
+        HpHealTime = 0.5f;
 
         TotalWeaponExp = 20;
         TotalPlayerExp = 5;
@@ -172,6 +202,11 @@ public class PlayerStat : MonoBehaviour
         Managers.UI.ClosePopupUI((Managers.UI.ShowPopUpUI<UI_Upgrade>()));
     }
 
+    public UI_Key GetKeyUI()
+    {
+        return keyUI;
+    }
+
     public void OnDamaged(int damage)
     {
         if (Hp > 0)
@@ -183,5 +218,15 @@ public class PlayerStat : MonoBehaviour
         {
             Managers.Scene.LoadScene(Define.Scene.Start);
         }
+    }
+
+    public void OnHeal()
+    {
+        isHeal = true;
+    }
+
+    public void OffHeal()
+    {
+        isHeal = false;
     }
 }

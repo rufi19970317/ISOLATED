@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 5880731932371811158}
   - component: {fileID: 5767192252281199274}
   m_Layer: 13
-  m_Name: blueRobot 1
+  m_Name: blueRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

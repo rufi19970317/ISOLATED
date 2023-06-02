@@ -288,6 +288,7 @@ MonoBehaviour:
   _maxHp: 0
   _attack: 0
   _moveSpeed: 0
+  _expType: 0
 --- !u!1 &7052028046866146707
 GameObject:
   m_ObjectHideFlags: 0
