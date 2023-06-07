@@ -74,6 +74,8 @@ public class UI_EnterBossRoom : UI_Popup
         else
             rewardPanel.transform.GetChild(2).gameObject.SetActive(false);
 
+        Managers.Game.bossRoomSet = bossRoomSet;
+
         Get<GameObject>((int)GameObjects.EnterButton).BindEvent((PointerEventData) =>
         {
             if(player.GetComponent<PlayerStat>().WeaponUpgradeNum >= bossRoomSet.requireEXPnum)

@@ -95,6 +95,12 @@ public class UI_Upgrade : UI_Popup
 
         for (int i = 0; i < 1; i++)
         {
+            UI_Upgrade_Item item = Managers.UI.MakeSubItem<UI_Upgrade_Item>(HousePanel.transform);
+            item.SetInfo(Define.Ability.House, ((Define.HouseAbility)i).ToString());
+        }
+
+        for (int i = 0; i < 1; i++)
+        {
             UI_Upgrade_Item item = Managers.UI.MakeSubItem<UI_Upgrade_Item>(PlayerPanel.transform);
             item.SetInfo(Define.Ability.Player, ((Define.PlayerAbility)i).ToString());
         }

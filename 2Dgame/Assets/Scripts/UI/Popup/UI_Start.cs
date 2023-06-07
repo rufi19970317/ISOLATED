@@ -10,6 +10,7 @@ public class UI_Start : UI_Popup
     enum GameObjects
     {
         GameStart,
+        Option,
         Exit
     }
 
@@ -22,6 +23,11 @@ public class UI_Start : UI_Popup
         Get<GameObject>((int)GameObjects.GameStart).BindEvent((PointerEventData) =>
         {
             Managers.Scene.LoadScene(Define.Scene.Game);
+        });
+
+        Get<GameObject>((int)GameObjects.Option).BindEvent((PointerEventData) =>
+        {
+            transform.Find("OptionPannel").gameObject.SetActive(true);
         });
 
         Get<GameObject>((int)GameObjects.Exit).BindEvent((PointerEventData) =>

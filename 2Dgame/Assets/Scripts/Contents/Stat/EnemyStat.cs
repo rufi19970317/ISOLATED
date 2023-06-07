@@ -74,9 +74,17 @@ public class EnemyStat : Stat
     {
         if (!isRespawn)
         {
+            
             Hp = 0;
-            var expObj = Managers.Game.Spawn(Define.WorldObject.Item, "Item/" + _expType.ToString());
-            expObj.transform.position = transform.position;
+            if (_expType != Define.EXPType.Boss)
+            {
+                var expObj = Managers.Game.Spawn(Define.WorldObject.Item, "Item/" + _expType.ToString());
+                expObj.transform.position = transform.position;
+            }
+            else
+            {
+                Managers.UI.ShowPopUpUI<UI_ExitBossRoom>();
+            }
 
             if (isDefenseMonster)
             {

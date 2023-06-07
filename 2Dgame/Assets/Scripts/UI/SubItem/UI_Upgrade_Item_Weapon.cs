@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
-using static Util;
 
 public class UI_Upgrade_Item_Weapon : UI_Base
 {

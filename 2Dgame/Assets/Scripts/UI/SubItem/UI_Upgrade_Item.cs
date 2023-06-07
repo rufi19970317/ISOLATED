@@ -31,7 +31,18 @@ public class UI_Upgrade_Item : UI_Base
         switch (ability)
         {
             case Define.Ability.House:
+                HouseController = Managers.Game.GetPlayer().GetComponent<HouseController>();
                 Define.HouseAbility houseAbility = EnumUtil<Define.HouseAbility>.Parse(abilityName);
+                Get<GameObject>((int)GameObjects.ItemIcon).GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("Sprites/Upgrade/" + abilityName);
+
+                Get<GameObject>((int)GameObjects.ItemUpgrade).BindEvent((PointerEventData) =>
+                {
+                    if (stat.HouseUpgradeNum >= 5)
+                    {
+                        HouseController.SetAbility(houseAbility);
+                        stat.HouseUpgradeNum -= 5;
+                    }
+                });
                 break;
             case Define.Ability.Player:
                 PlayerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();

@@ -32,6 +32,16 @@ public class HouseController : MonoBehaviour
         Managers.Input.KeyAction -= OnKeyEvent;
     }
 
+    public void SetAbility(Define.HouseAbility houseAbility)
+    {
+        switch(houseAbility)
+        {
+            case Define.HouseAbility.HouseHeal:
+                Managers.Game.GetPlayer().GetComponent<PlayerStat>().HpHeal += 1;
+                break;
+        }
+    }
+
     void OnKeyEvent(Define.KeyEvent Key)
     {
         if (Time.timeScale != 0f && isPlayer)

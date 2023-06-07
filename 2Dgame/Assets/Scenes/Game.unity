@@ -372,17 +372,32 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 892318883}
+    m_TransformParent: {fileID: 1542279913}
     m_Modifications:
+    - target: {fileID: 5767295695400754214, guid: 5219ac13fa7e4204a8e5784ce850aa31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880731932371952480, guid: 5219ac13fa7e4204a8e5784ce850aa31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5880731932371952480, guid: 5219ac13fa7e4204a8e5784ce850aa31,
         type: 3}
       propertyPath: PlatformMask.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 5880731932371952486, guid: 5219ac13fa7e4204a8e5784ce850aa31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5880731932382743202, guid: 5219ac13fa7e4204a8e5784ce850aa31,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5880731932382743202, guid: 5219ac13fa7e4204a8e5784ce850aa31,
         type: 3}
@@ -454,7 +469,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: blueRobot 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5880731932383237762, guid: 5219ac13fa7e4204a8e5784ce850aa31,
+        type: 3}
+      propertyPath: m_Layer
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880731932383237762, guid: 5219ac13fa7e4204a8e5784ce850aa31,
+        type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5880731932371952480, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5767295695400754214, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5767295694251594226, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5880731932371952486, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5880731932371952482, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5880731932371811158, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5767192252281199274, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5767295694033795522, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 5767295694573200424, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 6719043835252528102, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
+    - {fileID: 1085243754664829003, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5219ac13fa7e4204a8e5784ce850aa31, type: 3}
 --- !u!4 &382072989 stripped
 Transform:
@@ -2141,7 +2177,7 @@ Transform:
   - {fileID: 1523187611}
   - {fileID: 1372227372}
   - {fileID: 144205952}
-  - {fileID: 382072989}
+  - {fileID: 1542279913}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2772,30 +2808,6 @@ Transform:
   m_Father: {fileID: 892318883}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1424634117 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5880731932383237762, guid: 5219ac13fa7e4204a8e5784ce850aa31,
-    type: 3}
-  m_PrefabInstance: {fileID: 382072988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1424634133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424634117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded08e82382581249b56b4f5e48db57d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: 
-  _hp: 50
-  _maxHp: 50
-  _attack: 0
-  _moveSpeed: 0
-  _expType: 1
 --- !u!1 &1523187610
 GameObject:
   m_ObjectHideFlags: 0
@@ -7548,6 +7560,56 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &1542279912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1542279913}
+  - component: {fileID: 1542279914}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Monster
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1542279913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542279912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 382072989}
+  m_Father: {fileID: 892318883}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542279914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542279912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded08e82382581249b56b4f5e48db57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _hp: 50
+  _maxHp: 50
+  _attack: 0
+  _moveSpeed: 0
+  _expType: 3
 --- !u!1 &1620509967
 GameObject:
   m_ObjectHideFlags: 0
@@ -9863,9 +9925,24 @@ PrefabInstance:
       objectReference: {fileID: 144205952}
     - target: {fileID: 9089918667056836199, guid: 1014a9026f8aeab418d54384e302957d,
         type: 3}
+      propertyPath: bossRoomSet.houseEXPnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089918667056836199, guid: 1014a9026f8aeab418d54384e302957d,
+        type: 3}
+      propertyPath: bossRoomSet.playerEXPnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089918667056836199, guid: 1014a9026f8aeab418d54384e302957d,
+        type: 3}
       propertyPath: bossRoomSet.roomPosition
       value: 
       objectReference: {fileID: 1372227372}
+    - target: {fileID: 9089918667056836199, guid: 1014a9026f8aeab418d54384e302957d,
+        type: 3}
+      propertyPath: bossRoomSet.weaponEXPnum
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9089918667056836199, guid: 1014a9026f8aeab418d54384e302957d,
         type: 3}
       propertyPath: bossRoomSet.requireEXPnum
