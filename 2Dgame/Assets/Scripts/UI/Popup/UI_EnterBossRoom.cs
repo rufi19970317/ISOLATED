@@ -84,7 +84,7 @@ public class UI_EnterBossRoom : UI_Popup
                 
                 // 플레이어 위치 이동
                 player.transform.position = bossRoomSet.roomPosition.position;
-
+                player.GetComponent<PlayerStat>().WeaponUpgradeNum -= bossRoomSet.requireEXPnum;
                 // 보스용 플레이어 무기로 변경
 
                 // 보스용 HP UI 생성

@@ -218,7 +218,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8656869702145598322}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 20
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2778,6 +2778,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MasterMixer: {fileID: 24100000, guid: ca208a94b1a32e447a9385cc83b99b59, type: 2}
+  dropdown: {fileID: 2800131037013982515}
+  BGMVolume: {fileID: 7922524727355511361}
+  SFXVolume: {fileID: 1959447475072758247}
+  fullScreenToggle: {fileID: 3354937723049120981}
 --- !u!1 &6423062303939377093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,7 +3126,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3800070099274859273}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 20
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

@@ -12,6 +12,9 @@ public class EnemyStat : Stat
     SpawningPool _pool;
     bool isDefenseMonster = false;
 
+    public List<bool> isDamage = new List<bool>();
+    public List<float> weaponTime = new List<float>();
+
     void Start()
     {
         Init();
@@ -25,7 +28,7 @@ public class EnemyStat : Stat
             monsterController = GetComponent<MonsterController>();
 
 
-        if (_expType == Define.EXPType.HouseEXP)
+        if (_expType == Define.EXPType.HouseEXP || _expType == Define.EXPType.Boss)
         {
             if (gameObject.GetComponentInChildren<UI_HPBar_Object>() == null)
             {
@@ -39,6 +42,21 @@ public class EnemyStat : Stat
         _maxHp = 100;
         _attack = 5;
         _moveSpeed = 5f;
+
+        for(int i = 0; i < 8; i++)
+        {
+            isDamage.Add(false);
+            weaponTime.Add(0f);
+        }
+    }
+
+    void Update()
+    {
+        for(int i = 0; i< 8; i++)
+        {
+            if (weaponTime[i] > 0f)
+                weaponTime[i] -= Time.deltaTime;
+        }
     }
 
     void OnEnable()

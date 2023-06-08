@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,26 +9,47 @@ using UnityEngine.UI;
 public class OptionController : MonoBehaviour
 {
     public AudioMixer _MasterMixer;
+    public TMP_Dropdown dropdown;
+    public Slider BGMVolume;
+    public Slider SFXVolume;
+    public Toggle fullScreenToggle;
 
-    public void SetMasterVolume(Slider volume)
+    public static string DROPDOWN_KEY = "DROPDOWN_KEY";
+    public static string BGMVOLUME_KEY = "BGMVOLUME_KEY";
+    public static string SFXVOLUME_KEY = "SFXVOLUME_KEY";
+    public static string FULLSCREEN_KEY = "FULLSCREEN_KEY";
+
+    void Awake()
     {
-        _MasterMixer.SetFloat("Master", volume.value);
+        if (PlayerPrefs.HasKey(DROPDOWN_KEY) == false) dropdown.value = 2;
+        else dropdown.value = PlayerPrefs.GetInt(DROPDOWN_KEY);
+
+        if (PlayerPrefs.HasKey(BGMVOLUME_KEY) == false) BGMVolume.value = 0;
+        else BGMVolume.value = PlayerPrefs.GetFloat(BGMVOLUME_KEY);
+
+        if (PlayerPrefs.HasKey(SFXVOLUME_KEY) == false) SFXVolume.value = 0;
+        else SFXVolume.value = PlayerPrefs.GetFloat(SFXVOLUME_KEY);
+
+        if (PlayerPrefs.HasKey(FULLSCREEN_KEY) == false) fullScreenToggle.isOn = false;
+        else fullScreenToggle.isOn = System.Convert.ToBoolean(PlayerPrefs.GetInt(FULLSCREEN_KEY));
     }
 
-    public void SetBGMVolume(Slider volume)
+    public void SetBGMVolume()
     {
-        _MasterMixer.SetFloat("BGM", volume.value);
+        _MasterMixer.SetFloat("BGM", BGMVolume.value);
+        PlayerPrefs.SetFloat(BGMVOLUME_KEY, BGMVolume.value);
     }
 
-    public void SetSFXVolume(Slider volume)
+    public void SetSFXVolume()
     {
-        _MasterMixer.SetFloat("SFX", volume.value);
+        _MasterMixer.SetFloat("SFX", SFXVolume.value);
+        PlayerPrefs.SetFloat(SFXVOLUME_KEY, SFXVolume.value);
     }
 
     int screenWidth = 1920;
     int screenHeight = 1080;
     bool isFullScreen = true;
-    public void SetResolution(TMP_Dropdown dropdown)
+    public void SetResolution()
     {
         int num = dropdown.value;
         switch(num)
@@ -57,16 +79,19 @@ public class OptionController : MonoBehaviour
                 screenHeight = 600;
                 break;
         }
+
+        PlayerPrefs.SetInt(DROPDOWN_KEY, num);
         Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         Debug.Log(Screen.width + " + " + Screen.height + ", " + Screen.fullScreen);
 
         Debug.Log(num);
     }
 
-    public void SetFullScreen(Toggle toggle)
+    public void SetFullScreen()
     {
-        isFullScreen = toggle.isOn;
+        isFullScreen = fullScreenToggle.isOn;
         Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
+        PlayerPrefs.SetInt(FULLSCREEN_KEY, System.Convert.ToInt32(isFullScreen));
         Debug.Log(Screen.width + " + " + Screen.height + ", " + Screen.fullScreen);
     }
 }
