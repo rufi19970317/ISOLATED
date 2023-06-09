@@ -18418,6 +18418,8 @@ MonoBehaviour:
   _attack: 0
   _moveSpeed: 0
   _expType: 3
+  isDamage: 
+  weaponTime: []
 --- !u!1 &892318881
 GameObject:
   m_ObjectHideFlags: 0
@@ -18815,12 +18817,12 @@ PrefabInstance:
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.2
+      value: 20.35
       objectReference: {fileID: 0}
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.3
+      value: 14.1
       objectReference: {fileID: 0}
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
@@ -18889,12 +18891,12 @@ PrefabInstance:
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.1
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.1
+      value: 13.9
       objectReference: {fileID: 0}
     - target: {fileID: 8587292328163960831, guid: 9ac2d0d1aea83184e81fd6019b7d6317,
         type: 3}
@@ -24275,6 +24277,8 @@ MonoBehaviour:
   _attack: 0
   _moveSpeed: 0
   _expType: 3
+  isDamage: 
+  weaponTime: []
 --- !u!1 &1620509967
 GameObject:
   m_ObjectHideFlags: 0

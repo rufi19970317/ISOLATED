@@ -37,10 +37,10 @@ public class UI_Upgrade_Item : UI_Base
 
                 Get<GameObject>((int)GameObjects.ItemUpgrade).BindEvent((PointerEventData) =>
                 {
-                    if (stat.HouseUpgradeNum >= 5)
+                    if (stat.HouseUpgradeNum >= 1)
                     {
                         HouseController.SetAbility(houseAbility);
-                        stat.HouseUpgradeNum -= 5;
+                        stat.HouseUpgradeNum -= 1;
                     }
                 });
                 break;

@@ -227,10 +227,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5349692236424100590}
         m_TargetAssemblyTypeName: OptionController, Assembly-CSharp
         m_MethodName: SetBGMVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 7922524727355511361}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2363,10 +2363,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5349692236424100590}
         m_TargetAssemblyTypeName: OptionController, Assembly-CSharp
         m_MethodName: SetFullScreen
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3354937723049120981}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3135,10 +3135,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5349692236424100590}
         m_TargetAssemblyTypeName: OptionController, Assembly-CSharp
         m_MethodName: SetSFXVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1959447475072758247}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3650,10 +3650,10 @@ MonoBehaviour:
       - m_Target: {fileID: 5349692236424100590}
         m_TargetAssemblyTypeName: OptionController, Assembly-CSharp
         m_MethodName: SetResolution
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800131037013982515}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
